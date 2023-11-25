@@ -9,7 +9,7 @@ const Header = () => {
     <Container>
       <Logo source={logo}/>
       <InputContainer>
-        <Input placeholder='Pesquisa' placeholderTextColor="C0C0C1"/>
+        <Input placeholder='Pesquisa' placeholderTextColor="#C0C0C1"/>
         <Search source={search}/>
       </InputContainer>
     </Container>

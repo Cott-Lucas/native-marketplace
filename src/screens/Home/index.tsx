@@ -1,11 +1,13 @@
 import React from 'react'
-import { Header } from 'react-native/Libraries/NewAppScreen'
+import Header from "../../components/common/Header";
 import { Container } from './styled'
+import NavBar from '../../components/common/NavBar';
 
 const Home = () => {
   return (
     <Container>
       <Header/>
+      <NavBar/>
     </Container>
   )
 }

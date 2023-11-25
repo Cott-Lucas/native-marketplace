@@ -20,7 +20,7 @@ export const Logo = styled.Image.attrs({
 
 export const InputContainer = styled.View`
   flex-direction: row;
-  width: 65%;
+  width: 55%;
   background-color: ${({ theme }) => theme.colors.background};
   border-radius: 5px;
   justify-content: flex-end;
