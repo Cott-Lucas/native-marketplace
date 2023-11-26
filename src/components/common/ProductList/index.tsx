@@ -1,26 +1,13 @@
 import React from "react";
-import {
-  Container,
-  InfoLikeContainer,
-  LikeButton,
-  LikeIcon,
-  ProductImage,
-  ProductInfoContainer,
-  ProductPrice,
-  ProductTitle,
-  ProdutPriceTitleContainer,
-  PublishedText,
-  SellerInfoContainer,
-  SellerName,
-} from "./styled";
 import { ListRenderItem } from "react-native";
 import { FlatList } from "react-native";
 import { Alert } from "react-native";
+import ProductCard from "./ProductCard";
 
 const like = require("../../../../assets/icons/like.png");
 const liked = require("../../../../assets/icons/liked.png");
 
-interface ProductType {
+export interface ProductType {
   _id: string;
   productImage: string;
   price: string;
@@ -84,45 +71,8 @@ const Data = [
 ];
 
 const ProductList = () => {
-  const Item = ({ data }: { data: ProductType }) => (
-    <Container activeOpacity={0.85} onPress={()=>{
-      Alert.alert("Navegação para o produto!")
-    }}>
-      <ProductImage
-        source={{
-          uri: data.productImage,
-        }}
-      />
-      <ProductInfoContainer>
-        <ProdutPriceTitleContainer>
-          <ProductPrice>R$ {data.price}</ProductPrice>
-          <ProductTitle numberOfLines={2}>{data.name}</ProductTitle>
-        </ProdutPriceTitleContainer>
-        <InfoLikeContainer>
-          <SellerInfoContainer>
-            <PublishedText>
-              Publicado em: {data.publishedData} por:
-            </PublishedText>
-            <SellerName>{data.SellerName}</SellerName>
-          </SellerInfoContainer>
-          {!data.liked ? (
-            <LikeButton onPress={()=>{
-              Alert.alert('Você deu Like')
-            }}>
-              <LikeIcon source={like} />
-            </LikeButton>
-          ) : (
-            <LikeButton>
-              <LikeIcon source={liked} />
-            </LikeButton>
-          )}
-        </InfoLikeContainer>
-      </ProductInfoContainer>
-    </Container>
-  );
-
   const renderItem: ListRenderItem<ProductType> = ({ item }) => (
-    <Item data={item} />
+    <ProductCard data={item} />
   );
 
   return (
