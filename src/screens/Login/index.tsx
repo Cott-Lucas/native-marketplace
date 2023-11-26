@@ -15,27 +15,31 @@ import { Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { PropsStack } from "../../routes";
 
-const logo = require("../../../assets/images/logo.png");
+const logo = require("../../../assets/images/logo2.png");
 const compLogo = require("../../../assets/images/logo-obc.png");
 
 const Login = () => {
   const navigation = useNavigation<PropsStack>()
+
+  const toRegister = () =>{
+    navigation.navigate("Register")
+  }
 
   const handleLogin = () => {
     Alert.alert("botão de login");
   };
 
   return (
-    <Container>
-      <BackIcon marginLeft={30} />
+    <Container contentContainerStyle={{paddingBottom: 40}}>
+      <BackIcon marginLeft={20} />
       <Logo source={logo} />
       <InputContainer>
-        <Input placeholder="Digite seu email" placeholderTextColor="white" />
+        <Input placeholder="Digite seu email" placeholderTextColor="#C0C0C1" />
       </InputContainer>
       <InputContainer>
         <Input
           placeholder="Digite sua Senha"
-          placeholderTextColor="white"
+          placeholderTextColor="#C0C0C1"
           secureTextEntry={true}
         />
       </InputContainer>
@@ -46,9 +50,7 @@ const Login = () => {
         marginVertical={40}
         buttonHandle={() => handleLogin()}
       />
-      <RegisterText onPress={()=> {
-        navigation.navigate("Home")
-      }}>
+      <RegisterText onPress={toRegister}>
         Você ainda não tem conta? <Bold>Registre-se aqui!</Bold>
       </RegisterText>
       <CompanyLogo source={compLogo}/>
