@@ -16,9 +16,9 @@ const FieldsAbled = () => {
         <Input value="Lucas Ottaviani" />
       </InputContainer>
       <InputContainer>
-        <Input value="lucasottavini97@outlook.com" />
+        <Input value="lucasottaviani97@outlook.com" />
       </InputContainer>
-      <InputContainer></InputContainer>
+      <InputContainer>
         <Input value="(14) 99104-0564" />
       </InputContainer>
       <DropDownComponent data={Data} placeholder="Seus endereços" setSelected={setSelect}/>
