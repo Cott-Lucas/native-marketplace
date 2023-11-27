@@ -13,7 +13,7 @@ const Search = ({route}: Props) => {
   const query = route?.params.query
 
   return (
-    <Container>
+    <Container >
       <Header/>
       <ProductList/>
       <NavBar/>
