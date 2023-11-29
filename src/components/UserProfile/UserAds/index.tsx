@@ -4,18 +4,20 @@ import {
   Container,
   Image,
   InfoContainer,
-  InfoTrashContainer,
+  InfoIconContainer,
   NoAds,
   Price,
   PriceTitleContainer,
   PublishedText,
   Title,
   TotalAds,
-  TrashButton,
-  TrashIcon,
+  IconButton,
+  Icon,
 } from "./styled";
 
-const trash = require("../../../../assets/icons/trash.png");
+const trashIcon = require("../../../../assets/icons/trash.png");
+const favoriteIcon = require("../../../../assets/icons/like.png");
+
 
 interface Product {
   id: string;
@@ -27,9 +29,10 @@ interface Product {
 
 interface productProps {
   product: Product[];
+  seller: boolean;
 }
 
-const UserAds = ({ product }: productProps) => {
+const UserAds = ({ product, seller }: productProps) => {
   return (
     <Container>
       <TotalAds>Você tem {product?.length} anúncios</TotalAds>
@@ -48,12 +51,21 @@ const UserAds = ({ product }: productProps) => {
                 <Title numberOfLines={2}>{product.title}</Title>
               </PriceTitleContainer>
 
-              <InfoTrashContainer>
-                <PublishedText>{product.publishedData}</PublishedText>
-                <TrashButton activeOpacity={0.85} onPress={() => {}}>
-                  <TrashIcon source={trash} />
-                </TrashButton>
-              </InfoTrashContainer>
+              {!seller ? (
+                <InfoIconContainer>
+                  <PublishedText>{product.publishedData}</PublishedText>
+                  <IconButton activeOpacity={0.85} onPress={() => {}}>
+                    <Icon source={trashIcon} />
+                  </IconButton>
+                </InfoIconContainer>
+              ) : (
+                <InfoIconContainer>
+                  <PublishedText>{product.publishedData}</PublishedText>
+                  <IconButton activeOpacity={0.85} onPress={() => {}}>
+                    <Icon source={favoriteIcon} />
+                  </IconButton>
+                </InfoIconContainer>
+              )}
             </InfoContainer>
           </AdCard>
         ))

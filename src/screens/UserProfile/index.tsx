@@ -50,6 +50,21 @@ const UserProfile = () => {
     ]
     );
   };
+  const handleLogOut = () => {
+    Alert.alert(
+      "Desconectar",
+      "Você deseja desconectar?",
+      [{
+        text: "Sim",
+        onPress: ()=>{
+          Alert.alert("Deslogando")
+        }
+      }, {
+        text: "Não"
+      }
+    ]
+    );
+  };
 
   return (
     <>
@@ -57,8 +72,8 @@ const UserProfile = () => {
         <DefaultTitle fontSize={20} title="MEU PERFIL" />
         <ProfileInfo />
         <Form />
-        <UserAds product={Data} />
-        <LogOutBtn onPress={() => {}}>
+        <UserAds product={Data} seller={false}/>
+        <LogOutBtn onPress={handleLogOut}>
           <LogOutText>Sair da sua conta</LogOutText>
         </LogOutBtn>
         <DeleteAcc onPress={handleDeleteAcc}>Excluir Conta</DeleteAcc>

@@ -53,18 +53,19 @@ export const Price = styled.Text`
   font-weight: bold;
 `;
 
-export const InfoTrashContainer = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-`;
 export const PublishedText = styled.Text`
   font-size: 12px;
   color: ${({ theme }) => theme.colors.secondaryText};
 `;
 
-export const TrashButton = styled.TouchableOpacity``;
+export const InfoIconContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
 
-export const TrashIcon = styled.Image.attrs({ resizeMode: "contain" })`
+export const IconButton = styled.TouchableOpacity``;
+
+export const Icon = styled.Image.attrs({ resizeMode: "contain" })`
   width: 24px;
 `;
